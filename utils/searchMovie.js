@@ -2,7 +2,7 @@ fetch = require('node-fetch');
 const catchAsync = require('../utils/asyncHandle');
 const ExpressError = require('./ExpressError');
 
-const apiKey = '8a5dae0dd85e45f838e3082c70a5a3d5';
+const apiKey = '';// place your api key
 
 
 const searchMovieByName= catchAsync(async (title)=>{
@@ -11,7 +11,7 @@ const searchMovieByName= catchAsync(async (title)=>{
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YTVkYWUwZGQ4NWU0NWY4MzhlMzA4MmM3MGE1YTNkNSIsInN1YiI6IjY0YmE5M2E0NGQyM2RkMDBjODE0YTBjYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nqcClj4z4IrhtB2HVsxvzBZ88-JK3Hqna4jew0jYWwo'
+        Authorization: ''//
     }
     };
 

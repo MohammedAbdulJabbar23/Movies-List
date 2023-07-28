@@ -20,4 +20,5 @@ router.get("/:id",catchAsync( async (req,res)=>{
   res.render("show",{movie,cast,isInWatchList});
 }));
 
+
 module.exports = router;

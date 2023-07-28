@@ -12,10 +12,8 @@ const catchAsync = require('../utils/asyncHandle');
 router.get("/watchlist/:id",isLoggedIn, catchAsync(async (req,res)=>{
   const {id} = req.params;
   const user = await User.findById(req.user.id);
-  if(user.watchlist === undefined){
-    user.watchlist.push(id)
-  }
-  else if (!user.watchlist.includes(id)) {
+
+  if (!user.watchlist.includes(id)) {
     user.watchlist.push(id);
   }else{
     return res.redirect("/movie/" + id)

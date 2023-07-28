@@ -38,13 +38,10 @@
                             <button class="btn btn-primary me-2">Add to Watchlist</button>
                         </a>
                     <% } else { %>
-                        <a href="/add/watchlist/<%= movie.id %>">
+                        <a href="/remove/watchlist/<%= movie.id %>">
                                 <button class="btn btn-danger me-2">Remove from Watchlist</button>
                             </a>
                     <% }%>
-                    <a href="/add/watched/<%= movie.id %>">
-                        <button class="btn btn-success me-2">Add to Watched</button>
-                    </a>
     
                 <% } %>
 

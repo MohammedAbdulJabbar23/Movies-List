@@ -5,6 +5,7 @@ const searchMovie = require("../utils/searchMovie");
 const getPopularMovies = require("../utils/getPopularMovies");
 const { isLoggedIn } = require('../middleware');
 const catchAsync = require('../utils/asyncHandle');
+const User = require("../models/user");
 
 
 /* GET home page. */
@@ -29,6 +30,18 @@ router.post("/add/:id",isLoggedIn,(req,res)=>{
   res.send(id);
 });
 
+router.get("/remove/watchlist/:id",isLoggedIn,catchAsync(async(req,res)=>{
+  const {id} = req.params;
+  const user = await User.findById(req.user.id);
+
+  if (user.watchlist.includes(id)) {
+    user.watchlist.remove(id);
+  }else{
+    return res.redirect("/movie/" + id)
+  }
+  await user.save();
+  res.redirect("/movie/" + id);
+}))
 
 
 module.exports = router;

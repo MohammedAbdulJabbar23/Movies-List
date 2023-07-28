@@ -19,6 +19,7 @@ router.post("/register", catchAsync(async (req,res)=>{
     const registeredUser = await User.register(user,password);
     res.redirect("/");
   } catch (error) {
+      req.flash("error","Incorrect information try again!")
       res.redirect("/register");
   }
 
@@ -37,7 +38,7 @@ router.get("/logout",(req,res)=>{
     if(err){
       return next(err);
     }
-    // req.flash("success", "Goodbye!");
+    req.flash("success", "Goodbye!");
     res.redirect("/");
   });
 })

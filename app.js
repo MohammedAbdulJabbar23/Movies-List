@@ -9,9 +9,10 @@ const passport = require("passport");
 const LocalStraregy = require("passport-local");
 const User = require("./models/user");
 const mongoose = require("mongoose");
-const flash = require('connect-flash');
 const {isLoggedIn } = require("./middleware");
 const ExpressError = require('./utils/ExpressError');
+const flash = require('connect-flash');
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -59,8 +60,14 @@ app.use(passport.session());
 passport.use(new LocalStraregy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-// app.use(flash());
+app.use(flash());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.success = req.flash('success'); // Add success flash messages to res.locals
+  res.locals.error = req.flash('error'); // Add error flash messages to res.locals
+  next();
+});
 
 app.use((req,res,next)=>{
   res.locals.currentUser = req.user;
@@ -85,11 +92,9 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });

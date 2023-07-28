@@ -22,8 +22,8 @@ Technologies Used
 
   Installation
     1- Clone the repository:
-    cd Movies-List  
-    npm install
-    2- Set up your MongoDB URI
+        cd Movies-List  
+        npm install
+    2- Set up your MongoDB URI.
     3- Start the server:
       node /bin/www.js

@@ -1,0 +1,71 @@
+<% layout("./layout/boilerplate") %>
+    <!-- Backdrop Image -->
+
+    <div class="container mt-4">
+        <!-- Movie Poster and Details -->
+        <div class="row">
+            <div class="col-md-4 movie-poster">
+                <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" alt="Movie Poster" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h1 class="mb-4 movie-title">
+                    <%= movie.title %>
+                </h1>
+                <div class="mb-3 genres">
+                    <strong>Genres:</strong>
+                    <% movie.genres.forEach(function(m, index) { %>
+                        <%= m.name %>
+                            <%= index !==movie.genres.length - 1 ? ', ' : '' %>
+                                <% }); %>
+                </div>
+                <div class="mb-3">
+                    <strong>Release Date:</strong>
+                    <%= movie.release_date %>
+                </div>
+                <div class="mb-3">
+                    <strong>Vote Average:</strong>
+                    <%= movie.vote_average.toFixed() %>
+                </div>
+                <div class="mb-3 description">
+                    <strong>Description:</strong>
+                    <p>
+                        <%= movie.overview %>
+                    </p>
+                </div>
+                <% if (currentUser) { %>
+                    <a href="/add/watchlist/<%= movie.id %>">
+                        <% if (!isInWatchList) { %>
+                            <button class="btn btn-primary me-2">Add to Watchlist</button>
+                        </a>
+                    <% } else { %>
+                        <a href="/add/watchlist/<%= movie.id %>">
+                                <button class="btn btn-danger me-2">Remove from Watchlist</button>
+                            </a>
+                    <% }%>
+                    <a href="/add/watched/<%= movie.id %>">
+                        <button class="btn btn-success me-2">Add to Watched</button>
+                    </a>
+    
+                <% } %>
+
+                <div class="mt-4">
+                    <h3>Cast</h3>
+                    <ul class="list-unstyled cast-list">
+                        <% const visibleCastCount=10; cast.slice(0, visibleCastCount).forEach(function(c) { %>
+                            <li class="media mb-3 cast-item">
+                                <a href="/cast/<%= c.id %>" class="cast-link">
+                                    <img src="https://image.tmdb.org/t/p/w185<%= c.profile_path %>" alt="<%= c.name %>"
+                                        class="mr-3 cast-image">
+                                    <div class="media-body">
+                                        <h5 class="mt-0 mb-1 cast-name">
+                                            <%= c.name %>
+                                        </h5>
+                                        <%= c.character %>
+                                    </div>
+                                </a>
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>

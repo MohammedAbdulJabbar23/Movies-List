@@ -1,0 +1,29 @@
+<% layout("./layout/boilerplate") %>
+
+<div class="container mt-4">
+  <h1>Search Results</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <ul id="searchResults" class="list-group"></ul>
+    </div>
+  </div>
+  <div class="container movie-card">
+    <div class="row mt-4">
+      <% for (let movie of movies) { %>
+        <% if (movie.poster_path) { %>
+          <div class="col-md-3 mb-4">
+            <a href="/movie/<%= movie.id %>">
+            <div class="card bg-dark text-white movie-card-item">
+              <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" class="card-img-top" alt="Movie Poster">
+              <div class="card-body">
+                <h5 class="card-title mb-5 movie-title"><%= movie.title %></h5>
+                <a href="/movie/<%= movie.id %>" class="btn btn-view-details mt-3">View Details</a>
+              </div>
+            </div>
+          </a>
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+  

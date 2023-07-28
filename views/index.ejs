@@ -1,0 +1,48 @@
+<% layout("./layout/boilerplate") %>
+    <div class="container">
+      <!-- Overview Section -->
+      <div class="jumbotron mt-4">
+        <h1>Welcome to Movie Mania</h1>
+        <p>Discover and explore a wide range of movies from all genres. Join our community to rate, review, and keep
+          track of your favorite movies.</p>
+      </div>
+  
+      <!-- Search Section -->
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="search-section">
+            <h2>Search for a Movie</h2>
+            <form action="/search" method="get">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter movie title" name="title" required>
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Popular Movies Section -->
+      <div class="container movie-card">
+        <h1>Popular Movies:</h1>
+        <div class="row mt-4">
+          <% for (let movie of popularMovies) { %>
+            <% if (movie.poster_path) { %>
+              <div class="col-md-3 mb-4">
+                <a href="/movie/<%= movie.id %>">
+                <div class="card bg-dark text-white movie-card-item">
+                  <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" class="card-img-top" alt="Movie Poster">
+                  <div class="card-body">
+                    <h5 class="card-title mb-5 movie-title"><%= movie.title %></h5>
+                    <a href="/movie/<%= movie.id %>" class="btn btn-view-details mt-3">View Details</a>
+                  </div>
+                </div>
+              </a>
+              </div>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+      

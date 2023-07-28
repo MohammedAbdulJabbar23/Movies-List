@@ -1,0 +1,34 @@
+<% layout("./layout/boilerplate") %>
+
+<div class="container">
+
+    <h1 class="mt-4">To Watch Movies</h1>
+    <div class="d-flex flex-wrap">
+      <!-- Repeat this section for each movie -->
+      <% for (let movie of movies) { %>
+        <% if (movie.poster_path) { %>
+          <div class="col-md-3 mb-4">
+            <a href="/movie/<%= movie.id %>">
+            <div class="card bg-dark text-white movie-card-item">
+              <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" class="card-img-top" alt="Movie Poster">
+              <div class="card-body">
+                <h5 class="card-title mb-5 movie-title"><%= movie.title %></h5>
+                <a href="/movie/<%= movie.id %>" class="btn btn-view-details mt-3">View Details</a>
+              </div>
+            </div>
+          </a>
+          </div>
+        <% } %>
+      <% } %>
+
+      <!-- End of movie section -->
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

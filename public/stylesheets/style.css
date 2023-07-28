@@ -1,0 +1,270 @@
+/* style.css */
+body {
+  background-color: #272727;
+  color: #f7f7f7;
+}
+
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #f7f7f7;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.movie-poster img {
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+.movie-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff6347;
+}
+
+.genres {
+  font-size: 18px;
+  color: #adb5bd;
+}
+
+.description p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #ced4da;
+}
+
+.btn-view-details {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-view-details:hover {
+  background-color: #138496;
+}
+
+.movie-details-buttons .btn:hover {
+  transform: translateY(-2px);
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.cast-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.cast-item img:hover {
+  transform: scale(1.1);
+}
+
+.cast-item h5 {
+  font-size: 18px;
+  color: #f7f7f7;
+}
+
+.cast-item p {
+  font-size: 16px;
+  color: #ced4da;
+}
+.movie-card-item {
+  height: 100%;
+  position: relative; /* Set the movie card to be a reference for the absolute-positioned button */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.movie-card-item .btn-view-details {
+  position: absolute;
+  bottom: 20px; /* Adjust this value to change the vertical position of the button */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Adjust to center the button precisely */
+  z-index: 1; /* Ensure the button appears above the card content */
+}
+
+.movie-card-item .card-img-top {
+  transition: transform 0.2s ease;
+}
+
+.movie-card-item:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.movie-card-item .card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie-card-item a {
+  text-decoration: none;
+}
+
+.card {
+  background: transparent; /* Set the background as transparent */
+  min-height: 250px; /* Set a minimum height for the card to ensure content is visible */
+}
+
+/* Style for the movie card image */
+.card-img-top {
+  border-radius: 10px; /* Add border-radius to the image for a rounded look */
+}
+
+/* Style for the cast member images */
+.cast-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.cast-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.cast-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cast-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.cast-item {
+  flex-basis: 25%;
+  padding: 10px;
+}
+
+
+.actor-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.actor-profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.actor-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.more-info {
+  display: none;
+}
+
+.show-more {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Styling for movie cards */
+.movie-card-item {
+  width: 100%;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-view-details {
+  display: block;
+  width: 100%;
+}
+
+/* register form*/
+.register-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+}
+
+.register-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.register-button {
+  width: 100%;
+}
+
+
+.dropdown-menu {
+  background-color: #1e1e1e;
+  border: none;
+}
+
+.dropdown-item {
+  color: #f5f5f5;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #121212;
+  background-color: #f5f5f5;
+}
+
+.dropdown-item.active {
+  color: #fff;
+  background-color: #007bff;
+}

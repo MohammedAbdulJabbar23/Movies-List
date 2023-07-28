@@ -21,9 +21,14 @@ Technologies Used
     Fetch API (for making HTTP requests
 
   Installation
-    1- Clone the repository:
-        cd Movies-List  
-        npm install
-    2- Set up your MongoDB URI.
-    3- Start the server:
+1- Clone the repository:
+
+    git clone https://github.com/MohammedAbdulJabbar23/Movies-List.git
+    cd Movies-List  
+    npm install
+    
+2- Set up your MongoDB URI.
+   
+3- Start the server:
+      
       node /bin/www.js
